@@ -13,15 +13,6 @@ main { width: 100%; max-width: 1920px; margin-inline: auto; }
 .hotspot:hover { box-shadow: inset 0 0 0 2px rgb(220 0 35 / 65%); }
 .hotspot:focus-visible { outline: 3px solid #df002a; outline-offset: 4px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-.skip { position: fixed; z-index: 10; left: 12px; top: 12px; transform: translateY(-200%); background: #fff; color: #20201f; padding: 14px; border-radius: 8px; }
-.skip:focus { transform: none; }
-.text-version { max-width: 900px; margin: 24px auto 40px; padding: 0 24px; font-size: 16px; line-height: 1.6; }
-.text-version summary { cursor: pointer; font-size: 14px; color: #555; }
-.text-version h1 { font-size: 28px; line-height: 1.2; }
-.text-version h2 { font-size: 23px; line-height: 1.25; margin-top: 32px; }
-.text-version h3 { font-size: 18px; margin-bottom: 8px; }
-.text-version a { color: #b80022; text-underline-offset: 3px; }
-.text-version button { border: 1px solid #20201f; background: white; padding: 10px 14px; border-radius: 8px; font: inherit; cursor: pointer; }
 .toast { position: fixed; z-index: 20; bottom: 24px; left: 50%; transform: translateX(-50%); max-width: calc(100% - 32px); padding: 12px 20px; background: #20201f; color: #fff; border-radius: 999px; text-align: center; box-shadow: 0 3px 18px #0003; }
 .toast:empty { display: none; }
 dialog { border: 0; border-radius: 16px; padding: 28px; width: min(380px, calc(100% - 32px)); }
@@ -35,4 +26,4 @@ dialog button { padding: 10px 16px; border-radius: 999px; border: 0; background:
   .desktop-only { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-@media print { .text-version { display: block; } .toast, .skip { display: none; } }
+@media print { .toast { display: none; } }

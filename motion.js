@@ -40,7 +40,6 @@
   const nav = document.querySelector('.floating-nav');
   const links = [...nav.querySelectorAll('a')];
   const sections = links.map(link => document.querySelector(link.hash));
-  const conditions = document.getElementById('text-version');
   const mobile = matchMedia('(max-width: 900px)');
   const indicator = document.createElement('span');
   indicator.className = 'nav-indicator';
@@ -80,23 +79,17 @@
   }
   addEventListener('scroll', scheduleNav, { passive: true });
   addEventListener('resize', scheduleNav);
-  function openConditions() {
-    if (location.hash === '#text-version') conditions.open = true;
-  }
   document.addEventListener('click', event => {
     const link = event.target.closest('a[href^="#"]');
     if (!link) return;
-    if (link.hash === '#text-version') conditions.open = true;
     holdUntil = performance.now() + 1200;
     hidden = false;
     travel = 0;
     scheduleNav();
   });
-  addEventListener('hashchange', openConditions);
   nav.addEventListener('focusin', scheduleNav);
   nav.addEventListener('focusout', scheduleNav);
   // Font loading can change link widths after the initial layout.
   if (document.fonts) document.fonts.ready.then(scheduleNav);
-  openConditions();
   updateNav();
 })();

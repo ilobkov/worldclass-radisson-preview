@@ -32,7 +32,6 @@
 .promo-value { display: flex; align-items: center; gap: 10px; font-weight: 600; }
 .copy-icon { width: 16px; height: 16px; flex: none; }
 #members .promo-button.is-copied { border-color: #ddd; }
-.skip { z-index: 40; }
 .toast:not(:empty) { animation: toast-in .2s ease-out; }
 @keyframes toast-in { from { opacity: 0; margin-bottom: -6px; } to { opacity: 1; margin-bottom: 0; } }
 @media (max-width: 900px) {
@@ -58,10 +57,6 @@
 .floating-nav a:focus-visible, .hotspot:focus-visible { outline-color: #dd2023; }
 .hotspot.live-button { transition-duration: .16s; font-family: inherit; }
 .promo-label { min-height: 1.25em; line-height: 1.25; }
-.text-version { scroll-margin-top: 90px; overflow-wrap: anywhere; }
-.text-version summary { min-height: 44px; padding-block: 12px; }
-.text-version button { min-height: 44px; }
-.text-version a:focus-visible, .text-version summary:focus-visible { outline: 3px solid #dd2023; outline-offset: 4px; }
 @media (max-width: 900px) {
   .floating-nav { max-width: calc(100% - 16px); gap: 1px; padding: 4px; }
   .floating-nav a { padding-inline: 8px; font-size: 11px; }

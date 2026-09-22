@@ -1,0 +1,60 @@
+/* Progressive enhancement: the artwork remains visible if JavaScript fails. */
+.section { scroll-margin-top: 90px; }
+.floating-nav { position: fixed; z-index: 30; top: max(14px, env(safe-area-inset-top)); left: 50%; transform: translate(-50%, -12px); display: flex; padding: 5px; gap: 3px; width: max-content; max-width: calc(100% - 24px); border: 1px solid #ffffff24; border-radius: 999px; background: #20201ff2; box-shadow: 0 8px 28px #0002; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; }
+.floating-nav.is-visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.floating-nav a { min-height: 42px; display: flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 999px; color: #fff; text-decoration: none; white-space: nowrap; font-size: 14px; transition: background .2s, color .2s; }
+.floating-nav a:hover { background: #ffffff18; }
+.floating-nav a[aria-current] { background: #fff; color: #20201f; }
+.floating-nav a:focus-visible { outline: 3px solid #e50032; outline-offset: 2px; }
+.section { container-type: inline-size; }
+.hotspot.live-button { display: flex; align-items: center; justify-content: center; gap: 8px; background: #20201f; color: #fff; font-family: Arial, Helvetica, sans-serif; font-size: clamp(12px, 2.08cqw, 40px); text-decoration: none; transition: background .2s, box-shadow .2s; }
+#intro .live-button { font-size: clamp(12px, 1.39cqw, 27px); }
+#members .live-button { background: #fff; color: #20201f; }
+.hotspot.live-button:hover { background: #383837; box-shadow: 0 5px 18px #0002; }
+#members .live-button:hover { background: #f0f0ee; }
+.button-label { transition: transform .15s; }
+.live-button:active .button-label { transform: translateY(2px); }
+#members .promo-button { background: #20201f; color: #fff; border: 2px solid #ddd; font-size: clamp(12px, 1.6cqw, 30px); flex-direction: column; gap: 3px; }
+#members .promo-button:hover { background: #30302f; box-shadow: 0 0 0 3px #ffffff20; }
+.promo-label { font-size: .72em; font-weight: 400; }
+.promo-value { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.copy-icon { width: 16px; height: 16px; flex: none; }
+#members .promo-button.is-copied { border-color: #ddd; }
+.skip { z-index: 40; }
+.toast:not(:empty) { animation: toast-in .2s ease-out; }
+@keyframes toast-in { from { opacity: 0; margin-bottom: -6px; } to { opacity: 1; margin-bottom: 0; } }
+@media (max-width: 900px) {
+  .floating-nav a { padding: 0 10px; font-size: 12px; }
+  .hotspot.live-button { font-size: clamp(16px, 5.2cqw, 31px); }
+  #intro .live-button { font-size: clamp(14px, 4.27cqw, 26px); }
+  #members .promo-button { font-size: clamp(16px, 5.2cqw, 31px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-nav, .floating-nav a, .live-button, .button-label { transition: none; }
+  .live-button:active .button-label { transform: none; }
+  .toast:not(:empty) { animation: none; }
+}
+@media print { .floating-nav { display: none; } }
+
+/* Guide colours apply to UI accents, not the approved artwork.
+   Motion timings are project choices, not an official brand standard. */
+.floating-nav { background: #2f2f2ff5; transition-duration: .22s; }
+.floating-nav a { position: relative; z-index: 1; min-height: 44px; transition: color .18s; }
+.floating-nav a[aria-current] { background: transparent; color: #2f2f2f; }
+.nav-indicator { position: absolute; top: 5px; bottom: 5px; left: 0; border-radius: 999px; background: #f5f5f5; pointer-events: none; opacity: 0; transition: transform .22s cubic-bezier(.2,.7,.2,1), width .22s, opacity .18s; }
+.floating-nav a:focus-visible, .hotspot:focus-visible { outline-color: #dd2023; }
+.hotspot.live-button { transition-duration: .16s; font-family: inherit; }
+.promo-label { min-height: 1.25em; line-height: 1.25; }
+.text-version { scroll-margin-top: 90px; overflow-wrap: anywhere; }
+.text-version summary { min-height: 44px; padding-block: 12px; }
+.text-version button { min-height: 44px; }
+.text-version a:focus-visible, .text-version summary:focus-visible { outline: 3px solid #dd2023; outline-offset: 4px; }
+@media (max-width: 900px) {
+  .floating-nav { max-width: calc(100% - 16px); gap: 1px; padding: 4px; }
+  .floating-nav a { padding-inline: 8px; font-size: 11px; }
+  .nav-indicator { top: 4px; bottom: 4px; }
+  .hotspot.live-button { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-indicator, .floating-nav, .floating-nav a, .hotspot.live-button { transition: none; }
+}
